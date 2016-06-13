@@ -1,5 +1,6 @@
 package sk.oceliak.promo.model.api;
 
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -23,5 +24,5 @@ public interface ApiService {
     Observable<OrdersRresponse> getOrders(@Path("id") long id);
 
     @POST("contacts")
-    Observable<Response> postContact(@Body Contact body);
+    Observable<Response<ResponseBody>> postContact(@Body Contact body);
  }

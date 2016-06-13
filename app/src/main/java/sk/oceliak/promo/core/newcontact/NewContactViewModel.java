@@ -7,6 +7,7 @@ import android.view.View;
 import javax.inject.Inject;
 
 import it.cosenonjaviste.mv2m.ViewModel;
+import okhttp3.ResponseBody;
 import retrofit2.Response;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -42,7 +43,7 @@ public class NewContactViewModel extends ViewModel<Void, NewContactModel> {
             contact.setName(model.name.text.get());
             contact.setPhone(model.phone.text.get());
 
-            Observable<Response> response = mService.postContact(contact);
+            Observable<Response<ResponseBody>> response = mService.postContact(contact);
 
             response.subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
