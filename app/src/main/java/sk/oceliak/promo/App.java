@@ -4,6 +4,8 @@ import android.app.Application;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
+import timber.log.Timber;
+
 /**
  * Main application controller
  */
@@ -26,6 +28,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         sInstance = this;
+        Timber.plant(new Timber.DebugTree());
+
         component = DaggerApplicationComponent.builder()
                 .appModule(new AppModule())
                 .build();
