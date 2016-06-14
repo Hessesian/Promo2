@@ -10,6 +10,7 @@ public enum RealmConfig implements Config {
     CACHE("cache");
 
     private String name;
+    private RealmConfiguration configuration;
 
     RealmConfig(String name) {
         this.name = name;
@@ -19,10 +20,13 @@ public enum RealmConfig implements Config {
     public RealmConfiguration getConfiguration() {
         switch (this) {
             case CACHE:
-                return new RealmConfiguration.Builder(App.getInstance())
-                        .name(name)
-                        .deleteRealmIfMigrationNeeded()
-                        .build();
+                if (configuration == null) {
+                    configuration = new RealmConfiguration.Builder(App.getInstance())
+                            .name(name)
+                            .deleteRealmIfMigrationNeeded()
+                            .build();
+                }
+                return configuration;
         }
         return null;
     }
