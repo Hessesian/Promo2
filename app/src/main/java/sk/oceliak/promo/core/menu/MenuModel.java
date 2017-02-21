@@ -7,13 +7,14 @@ import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
 import sk.oceliak.promo.core.base.ListModel;
 import sk.oceliak.promo.model.api.models.Contact;
+import sk.oceliak.promo.model.api.models.Item;
 
 /**
  * Java model of menu
  */
 
 @ParcelablePlease
-public class MenuModel extends ListModel<Contact> implements Parcelable {
+public class MenuModel extends ListModel<Item> implements Parcelable {
     @Override
     public int describeContents() {
         return 0;

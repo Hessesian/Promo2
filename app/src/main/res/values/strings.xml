@@ -4,7 +4,7 @@
     <string name="btn_add">add</string>
     <string name="name_hint">First Name and Last Name</string>
     <string name="phone_hint">Phone</string>
-    <string name="phone">Phone</string>
+    <string name="name">Name</string>
     <string name="action_add">Add</string>
     <string name="action_settings">Settings</string>
 

@@ -3,6 +3,7 @@ package sk.oceliak.promo.core.navigation;
 import it.cosenonjaviste.mv2m.ActivityHolder;
 import retrofit2.Response;
 import sk.oceliak.promo.model.api.models.Contact;
+import sk.oceliak.promo.model.api.models.Item;
 import sk.oceliak.promo.ui.screens.menu.MenuFragmentActivity;
 import sk.oceliak.promo.ui.screens.newcontact.NewContactFragmentActivity;
 
@@ -12,8 +13,8 @@ import sk.oceliak.promo.ui.screens.newcontact.NewContactFragmentActivity;
 public class AppNavigator implements Navigator{
 
     @Override
-    public void openContact(ActivityHolder activityHolder, Contact contact) {
-        ((MenuFragmentActivity)activityHolder.getActivity()).openContact(contact);
+    public void openContact(ActivityHolder activityHolder, Item item) {
+        ((MenuFragmentActivity)activityHolder.getActivity()).openItem(item);
     }
 
     @Override

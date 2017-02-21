@@ -5,6 +5,7 @@
         <variable
             name="viewModel"
             type="sk.oceliak.promo.core.orders.OrdersViewModel"/>
+        <import type="android.text.Html" />
     </data>
 
     <LinearLayout
@@ -20,12 +21,12 @@
             android:padding="@dimen/text_margin">
 
             <TextView
-                android:text="@string/phone"
+                android:text="@string/name"
                 android:id="@+id/phone_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                tools:text="Phone" />
+                tools:mText="Phone" />
 
             <TextView
                 android:text="@{viewModel.model.phone}"
@@ -33,16 +34,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/white"
-                tools:text="0903 000 123" />
+                tools:mText="0903 000 123" />
         </LinearLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <TextView
+            android:padding="@dimen/margin_medium"
             android:id="@+id/list"
+            android:text="@{Html.fromHtml(viewModel.model.text)}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:listitem="@layout/item_order">
 
-        </android.support.v7.widget.RecyclerView>
+        </TextView>
 
 
     </LinearLayout>

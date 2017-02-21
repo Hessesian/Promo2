@@ -13,6 +13,7 @@ import sk.oceliak.promo.core.menu.MenuViewModel;
 import sk.oceliak.promo.databinding.FragmentMenuBinding;
 import sk.oceliak.promo.databinding.ItemContactBinding;
 import sk.oceliak.promo.model.api.models.Contact;
+import sk.oceliak.promo.model.api.models.Item;
 import sk.oceliak.promo.ui.utils.RecyclerBindingBuilder;
 
 /**
@@ -31,7 +32,7 @@ public class MenuFragment extends ViewModelFragment<MenuViewModel> {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mBinding = FragmentMenuBinding.inflate(inflater);
-        return new RecyclerBindingBuilder<Contact>(inflater, null, viewModel, R.layout.fragment_menu)
+        return new RecyclerBindingBuilder<Item>(inflater, null, viewModel, R.layout.fragment_menu)
                 .viewHolder(ItemContactBinding::inflate,ItemContactBinding::setContact, (position) -> viewModel.onClick(position)).getRoot();
 
     }

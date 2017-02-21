@@ -16,13 +16,14 @@ import sk.oceliak.promo.core.navigation.AppNavigator;
 import sk.oceliak.promo.core.navigation.Navigator;
 import sk.oceliak.promo.model.api.ApiService;
 import sk.oceliak.promo.model.realm.settings.RealmExclusionStrategy;
+import sk.oceliak.promo.ui.utils.GsonUtils;
 
 /**
  * TODO CLASS_DESCRIPTION
  */
 
 @Module
-public class AppModule  {
+public class AppModule {
 
 
     @Provides
@@ -30,7 +31,9 @@ public class AppModule  {
         return new AppNavigator();
     }
 
-    @Provides @Singleton public ApiService provideApiService(){
+    @Provides
+    @Singleton
+    public ApiService provideApiService() {
         return createService(ApiService.class);
     }
 
@@ -40,7 +43,6 @@ public class AppModule  {
      *
      * @param serviceClass Retrofit or similar
      * @param <T>          Generic type so you can use any type of API implementation
-     *
      * @return Retrofit service
      */
     private static <T> T createService(Class<T> serviceClass) {
@@ -48,6 +50,8 @@ public class AppModule  {
         Gson gson = new GsonBuilder()
                 .setDateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
                 .setExclusionStrategies(new RealmExclusionStrategy())
+                .registerTypeAdapterFactory(GsonUtils.IntObjectAdapterFactory.INSTANCE)
+                .registerTypeAdapterFactory(GsonUtils.StringObjectAdapterFactory.INSTANCE)
                 .create();
 
         HttpLoggingInterceptor logging = new HttpLoggingInterceptor();

@@ -4,8 +4,9 @@
 
     <data>
         <variable
-            name="order"
-            type="sk.oceliak.promo.model.api.models.Order"/>
+            name="item"
+            type="sk.oceliak.promo.model.api.models.Item"/>
+        <import type="android.text.Html"/>
     </data>
 
     <RelativeLayout
@@ -15,25 +16,25 @@
 
         <TextView
             android:id="@+id/title"
-            android:text="@{order.name}"
+            android:text="@{Html.fromHtml(item.title)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/margin_small"
-            tools:text="Monitor" />
+            tools:mText="Monitor" />
 
         <TextView
             android:id="@+id/count"
-            android:text='@{String.format("%d x", order.count)}'
+            android:text="@{Html.fromHtml(item.body)}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_alignTop="@+id/title"
             android:layout_marginRight="@dimen/margin_large"
-            tools:text="4x" />
+            tools:mText="4x" />
 
 
         <View

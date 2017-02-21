@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import it.cosenonjaviste.mv2m.ArgumentManager;
 import sk.oceliak.promo.R;
 import sk.oceliak.promo.model.api.models.Contact;
+import sk.oceliak.promo.model.api.models.Item;
 import sk.oceliak.promo.ui.base.BaseFragmentActivity;
 import sk.oceliak.promo.ui.screens.newcontact.NewContactFragmentActivity;
 import sk.oceliak.promo.ui.screens.orders.OrdersFragmentActivity;
@@ -57,9 +58,9 @@ public class MenuFragmentActivity extends BaseFragmentActivity {
         return Fragment.instantiate(this, MenuFragment.class.getName());
     }
 
-    public void openContact(Contact contact) {
+    public void openItem(Item item) {
         Intent intent = new Intent(this, OrdersFragmentActivity.class);
-        ArgumentManager.writeArgument(intent, contact);
+        ArgumentManager.writeArgument(intent, item);
         startActivity(intent);
     }
 }

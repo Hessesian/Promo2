@@ -7,22 +7,31 @@ import android.os.Parcelable;
 import com.hannesdorfmann.parcelableplease.annotation.ParcelablePlease;
 
 import sk.oceliak.promo.core.base.ListModel;
-import sk.oceliak.promo.model.api.models.Order;
+import sk.oceliak.promo.model.api.models.Item;
 
 /**
  * TODO CLASS_DESCRIPTION
  */
 @ParcelablePlease
-public class OrdersModel extends ListModel<Order> implements Parcelable {
+public class OrdersModel extends ListModel<Item> implements Parcelable {
 
     ObservableField<String> mPhone = new ObservableField<>();
+    ObservableField<String> mText = new ObservableField<>();
 
     public ObservableField<String> getPhone() {
         return mPhone;
     }
 
+    public ObservableField<String> getText() {
+        return mText;
+    }
+
     public void setPhone(ObservableField<String> phone) {
         this.mPhone = phone;
+    }
+
+    public void setText(String mText) {
+        this.mText.set(mText);
     }
 
     @Override
